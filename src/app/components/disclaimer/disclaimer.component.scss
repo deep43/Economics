@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+
+.disclaimer{
+  background: #f5f5f5;
+  margin-top: 30px;
+
+  .container{
+    @include mobile{
+      padding: 0 30px;
+    }
+  }
+  .text-container{
+
+    @include not-mobile{
+      padding-right: 33px;
+      padding-left: 30px;
+    }
+    //line-height: 1.29;
+    max-height: 0;
+    transition: max-height 0.4s ease-out, padding-top 0.4s;
+    overflow: hidden;
+    font-family: $CIBCCondensedFont;
+
+    p{
+      margin-bottom: 18px;
+    }
+    .first-para{
+      padding-top: 20px;
+    }
+  }
+  .title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .dis-container{
+    cursor: pointer;
+    @include not-mobile{
+      padding: 0 30px;
+    }
+    &:hover{
+      color: $CIBCBurgundy;
+    }
+    .row{
+      padding: 15px 0;
+    }
+  }
+  .image-col{
+    text-align: right;
+    padding-right: 25px;
+
+    @include mobile{
+      padding-right: 15px;
+      padding-left: 0;
+    }
+  }
+
+  .divider{
+    @include not-mobile{
+      border-top: 2px solid white;
+      margin: 0 23px 0 15px;
+    }
+  }
+
+  &.opened{
+    .dis-container{
+      color: $CIBCBurgundy;
+    }
+    .image-col{
+      img{
+        transform: rotate(180deg);
+      }
+    }
+    .text-container {
+      @include not-mobile{
+        padding-right: 33px;
+        padding-left: 30px;
+      }
+      @include mobile{
+        border-top: 2px solid white;
+      }
+      max-height: 800px;
+      transition: max-height 0.4s ease-in, padding-top 0.4s;
+
+      @include mobile{
+        max-height: 2100px;
+      }
+    }
+  }
+}

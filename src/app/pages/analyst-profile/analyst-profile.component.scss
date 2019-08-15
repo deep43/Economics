@@ -1,0 +1,36 @@
+@import '../../../styles/variables';
+
+::ng-deep .profile-page {
+  padding: 0 10px;
+  font-size: 0.9375rem;
+
+  .research-team-image {
+    padding-top: 3px;
+    width: 90%;
+  }
+
+  .details-section {
+    margin-left: -10px;
+
+    @include mobile{
+      padding-bottom: 40px;
+    }
+    div {
+      padding-bottom: 10px;
+
+      @include mobile{
+        padding-bottom: 0;
+      }
+    }
+
+    .name {
+      color: $CIBCBurgundy;
+      font-family: WhitneySemibold;
+    }
+
+    .headline {
+      color: $CIBCBurgundy;
+      font-family: WhitneySemibold;
+    }
+  }
+}

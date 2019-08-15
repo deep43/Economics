@@ -1,0 +1,215 @@
+@import '../../../styles/variables';
+
+::ng-deep .home-page-two {
+  padding: 0 10px;
+  margin-top: -80px !important;
+  @include tablet-mobile {
+    margin-top: 0 !important;
+  }
+
+  .app-section-container {
+    &:first-child {
+      padding-top: 20px;
+      background: white;
+      @include tablet-mobile {
+        padding-top: 0;
+
+        .section-heading {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  .more-tabs {
+    .mat-tab-label {
+      margin-bottom: 5px;
+      margin-right: 5px;
+      height: 40px !important;
+      border-right: 1px solid #BBBCBC;
+    }
+
+    .mat-tab-labels {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .slide-container {
+    padding: 25px 40px 30px 40px;
+    background: #f5f5f5;
+
+    .research-team-image {
+      width: 100%;
+
+      @include mobile {
+        width: 100px !important;
+      }
+    }
+  }
+
+  swiper {
+    //height: 200px;
+
+    .swiper-button-next {
+      background-image: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-button-prev {
+      background-image: none;
+      transform: rotate(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .details {
+      font-size: 0.875rem;
+
+      @include mobile {
+        padding-top: 15px;
+      }
+
+      > div {
+        padding-bottom: 7px;
+      }
+
+      .new {
+        font-weight: 800;
+        //font-family: WhitneySemibold;
+      }
+
+      .phone, .email{
+        font-family: WhitneyBook;
+      }
+      .pdf-link {
+        display: flex;
+        a {
+          text-transform: capitalize;
+          letter-spacing: 2px;
+          font-weight: 800;
+          font-size: 1rem;
+          text-decoration: none;
+          //font-family: WhitneySemibold;
+
+          &:after {
+            content: '';
+            width: 0;
+            height: 1px !important;
+            display: block;
+            background: #8B1D41;
+            transition: 500ms;
+          }
+
+          &:hover {
+            &:after {
+              width: 100%;
+            }
+          }
+        }
+        padding-bottom: 17px;
+      }
+
+      a {
+        color: $CIBCBurgundy;
+      }
+
+    }
+
+    .research-team-image {
+      padding-top: 5px;
+      @include mobile {
+        width: 100px;
+      }
+    }
+  }
+  .evt-date {
+    font-size: 0.875rem;
+    font-family: WhitneySemibold;
+  }
+
+  .section-heading {
+    margin-bottom: 0;
+  }
+
+  .flash-links-section {
+    font-size: 0.8125rem;
+
+    .row {
+      margin: 0 15px 0 0;
+    }
+    .flash-link {
+      color: $CIBCBurgundy;
+      cursor: pointer;
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 2px;
+      font-family: $CIBCSemiBoldFont;
+      line-height: 1.8;
+      transition: border 500ms linear;
+      &:after {
+        content: '';
+        width: 0;
+        height: 1px !important;
+        display: block;
+        background: $CIBCBurgundy;
+        transition: 500ms;
+      }
+      &:hover {
+        text-decoration: none;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .table-links {
+    font-size: 0.75rem;
+    color: $CIBCBurgundy;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 10px;
+    border-right: 1px solid $CIBCBurgundy;
+
+    @include mobile {
+      font-size: 0.625rem;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .table-links-row {
+    margin: 15px;
+    font-weight: 600;
+
+    @include mobile {
+      margin: 15px 0;
+    }
+  }
+
+  .research {
+    .news-list {
+      padding: 0 35px 0 15px !important;
+
+      @include mobile {
+        padding: 0 15px !important;
+      }
+    }
+  }
+
+  .forecast-report {
+    .section-heading {
+      margin-bottom: 0;
+    }
+    .news-list {
+      padding: 0 35px 0 0 !important;
+
+      @include mobile {
+        padding: 0 15px !important;
+      }
+    }
+  }
+}

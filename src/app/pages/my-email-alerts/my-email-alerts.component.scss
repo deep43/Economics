@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+
+::ng-deep .email-alerts-page {
+  padding: 0 10px;
+  font-size: 0.9375rem;
+
+  .email{
+    color: $CIBCBurgundy;
+  }
+
+  p{
+    font-size: 0.875rem;
+  }
+}

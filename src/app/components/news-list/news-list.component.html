@@ -1,0 +1,18 @@
+<div class="news-list">
+  <div class="row pt-2 pt-lg-4 " *ngFor="let news of newsFeeds">
+    <div class="col-12 m-p-0">
+      <span class="date">{{news.date}}</span>
+      <span class="pr-1 pl-1">-</span>
+      <a class="title" href="#">{{news.title}}</a>
+      <p class="description">{{news.description}}</p>
+      <a class="download" href="#">
+        <img alt="alternative text" class="img-col" src="/assets/images/Icons/Functional/Download.svg">
+      </a>
+    </div>
+  </div>
+  <div class="row" *ngIf="viewAllLink">
+    <div class="col-12 m-p-0">
+      <a class="view-all-link" href="#">VIEW ALL</a>
+    </div>
+  </div>
+</div>

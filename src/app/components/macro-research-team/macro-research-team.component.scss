@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+
+.research-team {
+  margin-top: 30px;
+  //padding-top: 5px;
+  //padding-bottom: 25px;
+  font-size: 0.8125rem;
+  border: 1px solid $StrokeGrey;
+  .scroll-container {
+    max-height: 400px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    /*overflow-y: auto;
+    overflow-x: hidden;
+    margin: 5px;
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(195, 195, 195, 0.3);
+      background-color: #F5F5F5;
+      margin-left: 3px;
+      border-radius: 30px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: #ececec;
+      border-radius: 30px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #bebebe;
+      border-radius: 30px;
+    }*/
+  }
+
+  .team-row {
+
+  }
+
+  .research-team-image {
+    padding-top: 3px;
+    padding-left: 15px;
+    width: 100%;
+  }
+
+  .email{
+    color: $CIBCBurgundy;
+  }
+
+  .details {
+    div {
+      padding-bottom: 5px
+    }
+  }
+
+  .name {
+    color: $CIBCBurgundy;
+    font-family: WhitneySemibold;
+  }
+}

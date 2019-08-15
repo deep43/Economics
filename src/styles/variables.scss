@@ -1,0 +1,60 @@
+$CIBCBurgundy: #8B1D41;
+$CIBCRed: #C41F3E;
+$Plum: #612141;
+$TextGrey: #606366;
+$StrokeGrey: #BBBCBC;
+$Charcoal: #383B3E;
+$HighContrastCIBCBurgundy: #4c1023;
+$HighContrastCharcoal: #141516;
+
+
+$CIBCLightRegularFont: 'WhitneyRegular';
+$CIBCLightItalicFont: 'WhitneyLightItalic';
+$CIBCSemiBoldFont: 'WhitneySemibold';
+$CIBCCondensedFont: 'WhitneyCondensed';
+
+$MobileScreenWidth: 600px;
+$TabletScreenWidth: 992px;
+$NotMobileScreenWidth: 601px;
+$BelowTablet: 768px;
+
+@mixin mobile{
+  @media only screen and (max-width: $MobileScreenWidth) {
+    @content;;
+  }
+}
+
+@mixin mobile-landscape{
+  @media only screen and (min-device-width: 480px)
+  and (max-device-width: 670px)
+  and (orientation: landscape) {
+    @content;;
+  }
+}
+
+@mixin iphone-landscape{
+  @media only screen
+  and (min-device-width : 375px)
+  and (max-device-width : 670px)
+  and (orientation : landscape){
+    @content;;
+  }
+}
+
+@mixin not-mobile{
+  @media only screen and (min-width: $NotMobileScreenWidth) {
+    @content;;
+  }
+}
+
+@mixin tablet-mobile{
+  @media only screen and (max-width: $TabletScreenWidth) {
+    @content;;
+  }
+}
+
+@mixin below-tablet{
+  @media only screen and (max-width: $BelowTablet) {
+    @content;;
+  }
+}

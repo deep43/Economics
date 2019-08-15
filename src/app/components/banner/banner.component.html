@@ -1,0 +1,24 @@
+<div class="banner" [ngClass]="{'on-mobile': (!isHandset$ | async)}" >
+  <div class="image-conatiner" [ngClass]="{'loaded': pageLoaded}" *ngIf="showBanner">
+    <!--<img alt="alternative text" src="assets/images/Background.jpg">-->
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows"
+                  [showNavigationIndicators]="showNavigationIndicators">
+      <ng-template ngbSlide *ngFor="let image of images">
+        <img alt="alternative text" [src]="image" alt="Random slide" class="img-fluid">
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="container">
+    <div class="row" *ngIf="showBanner">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 banner-title">
+        <!--<div class="app-title">SECURITIZATION</div>-->
+        <div></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 breadcrumb-col" [ngClass]="{'mt-4 pt-4': !showBanner }">
+        <app-breadcrumbs></app-breadcrumbs>
+      </div>
+    </div>
+  </div>
+</div>

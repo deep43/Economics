@@ -1,0 +1,393 @@
+<div class="home-page-two pt-4 mt-4">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 col-lg-8">
+        <h4 class="section-heading">ECONOMICS RESEARCH</h4>
+        <div class="pb-2 evt-date">May 7, 2019</div>
+      </div>
+      <div class="col-12 col-lg-4 hide-tablet-mobile">
+        <h4 class="section-heading">FORECAST SNAPSHOT</h4>
+      </div>
+    </div>
+    <div class="row app-section-container">
+      <div class="col-12 col-lg-8">
+        <div class="research pt-lg-2 pb-lg-4">
+          <swiper [config]="config">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" *ngFor="let info of sliderData">
+                <div class="slide-container">
+                  <div class="row">
+                    <div class="col-12 col-sm-3">
+                      <img alt="alternative text" src="{{info.image}}" class="research-team-image"/>
+                    </div>
+                    <div class="col-12 col-sm-9 details">
+                      <div class="new">Whats New:</div>
+                      <div class="pdf-link">
+                        <a href="#">{{info.pdfLink}}</a>
+                      </div>
+                      <div class="phone">{{info.eventDesc}}</div>
+                      <div class="email">Report: <a class="" [routerLink]="'/advancesearch'">{{info.report}}</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next">
+              <img alt="alternative text" src="assets/images/Icons/Functional/Chevron_Right_Burgundy.svg"/>
+            </div>
+            <div class="swiper-button-prev">
+              <img alt="alternative text" src="assets/images/Icons/Functional/Chevron_Right_Burgundy.svg"/>
+            </div>
+          </swiper>
+        </div>
+        <div class="research pt-lg-4">
+          <h4 class="section-heading mb-4">Research</h4>
+          <mat-tab-group class="show-desktop more-tabs">
+            <mat-tab label="Recent">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Economics Insights">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Week Ahead">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="FX Outlook">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Recent">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Economics Insights">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Week Ahead">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="In Focus">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Fisical & Budget">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="In Focus">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Fisical & Budget">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="FX Outlook">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Recent">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Economics Insights">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Week Ahead">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="FX Outlook">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="In Focus">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+            <mat-tab label="Fisical & Budget">
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-tab>
+          </mat-tab-group>
+          <mat-accordion class="show-mobile">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Recent
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Economics Insights
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  The Week Ahead
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  In Focus
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Fisical & Budget
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  FX Outlook
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </div>
+        <div class="forecast-report pt-lg-4 mt-lg-4 show-desktop">
+          <h4 class="section-heading mb-2">Forecast Report</h4>
+          <app-news-list [newsFeeds]="recentNews" [viewAllLink]="''"></app-news-list>
+        </div>
+        <div class="forecast-report pt-lg-4 mt-lg-4 show-mobile">
+          <mat-accordion class="show-mobile">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Forecast Report
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-news-list [newsFeeds]="recentNews" [viewAllLink]="'#'"></app-news-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="research pt-lg-2">
+          <h4 class="section-heading show-tablet-mobile mb-4">FORECAST SNAPSHOT</h4>
+          <mat-tab-group class="show-desktop">
+            <mat-tab label="GDP">
+              <app-economics-table [data]="GDPData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank" >View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Commodities</a>
+              </div>
+            </mat-tab>
+            <mat-tab label="Rates">
+              <app-economics-table [data]="ratesData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank" >View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Commodities</a>
+              </div>
+            </mat-tab>
+            <mat-tab label="FX">
+              <app-economics-table [data]="fxData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank"> View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Commodities</a>
+              </div>
+            </mat-tab>
+            <mat-tab label="Commodities">
+              <app-economics-table [data]="commoditiesData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank" >View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank" >All Commodities</a>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          <mat-accordion class="show-mobile">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  GDP
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-economics-table [data]="GDPData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank">View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Commodities</a>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Rates
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-economics-table [data]="ratesData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank">View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Commodities</a>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  FX
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-economics-table [data]="fxData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank">View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Commodities</a>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Commodities
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-economics-table [data]="commoditiesData"></app-economics-table>
+              <div class="row table-links-row">
+                <a class="table-links pl-0" href="{{linkUrl}}" target="_blank">View All GDP</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Rates & FX</a>
+                <a class="table-links" href="{{linkUrl}}" target="_blank">All Commodities</a>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+
+        <div class="research pt-lg-4">
+          <h4 class="section-heading mb-4">ECONOMIC FLASH</h4>
+          <mat-tab-group class="show-desktop">
+            <mat-tab label="Canada">
+              <div class="flash-links-section mt-lg-2">
+                <div class="row">
+                  <div class="col-12">
+                    <a class="flash-link" href="#" *ngFor="let news of canadaFlashNews">{{news}}</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <a class="view-all-link" href="#">VIEW ALL</a>
+                  </div>
+                </div>
+              </div>
+
+            </mat-tab>
+            <mat-tab label="U.S.">
+              <div class="flash-links-section mt-lg-2">
+                <div class="row">
+                  <div class="col-12">
+                    <a class="flash-link" href="#" *ngFor="let news of usFlashNews">{{news}}</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <a class="view-all-link" href="#">VIEW ALL</a>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          <mat-accordion class="show-mobile">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Canada
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="flash-links-section mt-lg-2">
+                <div class="row">
+                  <div class="col-12 tm-p-0">
+                    <a class="flash-link" href="#" *ngFor="let news of canadaFlashNews">{{news}}</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 tm-p-0">
+                    <a class="view-all-link" href="#">VIEW ALL</a>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  US
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+
+              </mat-expansion-panel-header>
+              <div class="flash-links-section mt-lg-2">
+                <div class="row">
+                  <div class="col-12 tm-p-0">
+                    <a class="flash-link" href="#" *ngFor="let news of usFlashNews">{{news}}</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 tm-p-0">
+                    <a class="view-all-link" href="#">VIEW ALL</a>
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+
+        <div class="research pt-lg-4">
+          <h4 class="section-heading mb-2">RESEARCH TEAM</h4>
+          <app-research-team [teams]="teams"></app-research-team>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="economic-table">
+  <div class="row">
+    <div class="col-12">
+      <div class="row headings">
+        <div class="{{heading.colClass}} heading"
+             *ngFor="let heading of data.headings; let hi = index"
+             [ngClass]="{'pl-0': hi === 0, 'pr-0': hi === data.headings.length-1}">
+          {{heading.name}}
+        </div>
+      </div>
+      <div class="row economic-table-row" *ngFor="let row of data.rows">
+        <div class="{{col.colClass}} column" *ngFor="let col of row; let ri = index" [ngClass]="{'pl-0': ri === 0, 'pr-0': ri === row.length-1}">
+          {{col.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

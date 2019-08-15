@@ -1,0 +1,53 @@
+<div class="macro-strategy-page">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 col-lg-8">
+        <div class="research pt-lg-4">
+          <h4 class="section-heading animated animatedFadeInUp fadeInUp">MACRO STRATEGY REPORTS</h4>
+          <!--<app-economics-table [data]="docData"></app-economics-table>-->
+          <div class="scroll-up-to-here animated animatedFadeInUp fadeInUp">
+            <ag-grid-angular
+              class="{{appliedThemeClassOnTable}}"
+              [rowData]="rowDataChange"
+              [columnDefs]="columnDefsChange"
+              [defaultColDef]="defaultColDef"
+              [floatingFilter]="false"
+              [animateRows]="true"
+              [pagination]="true"
+              [paginationPageSize]="selectedRowsPerPage"
+              [suppressPaginationPanel]="true"
+              (paginationChanged)="onAgGridPaginationChanged($event)"
+              (gridReady)="onGridReady($event)"
+              (firstDataRendered)="onFirstDataRendered($event)">
+            </ag-grid-angular>
+            <ngx-ui-loader [loaderId]="'loader-2'"></ngx-ui-loader>
+          </div>
+          <div class="macro-pagination mt-2">
+            <div class="pages-text">Page {{currentAgGridPage + 1}} of {{totalAgGridPages}}</div>
+            <ul class="hide">
+              <li *ngFor="let item of rowDataChange | paginate: { itemsPerPage: selectedRowsPerPage, currentPage: p }">
+                {{ item }}
+              </li>
+            </ul>
+            <pagination-controls #pageApi (pageChange)="p = pageChanged($event)"></pagination-controls>
+            <a class="last-page" (click)="goToAgGridLastPage(pageApi)">Last Page</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="research pt-lg-4">
+          <h4 class="section-heading animated animatedFadeInUp fadeInUp">MACRO STRATEGY</h4>
+          <div class="animated animatedFadeInUp fadeInUp">
+            <app-macro-research-team [teams]="teams"></app-macro-research-team>
+          </div>
+        </div>
+        <div class="research pt-lg-4 mt-lg-4">
+          <h4 class="section-heading animated animatedFadeInUp fadeInUp">GLOBAL MARKETS</h4>
+          <div class="animated animatedFadeInUp fadeInUp">
+            <app-macro-research-team [teams]="ficcTeams"></app-macro-research-team>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

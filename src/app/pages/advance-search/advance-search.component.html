@@ -1,0 +1,129 @@
+<div class="advance-search-page">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 ">
+        <h4 class="section-heading animated animatedFadeInUp fadeInUp">ADVANCED SEARCH</h4>
+      </div>
+      <div class="col-12 col-lg-4 animated animatedFadeInUp fadeInUp">
+        <div class="research pt-lg-4">
+          <div class="info-section">
+            <div class="group pb-2">
+              <span>Group: </span>
+              <span class="bold">All</span>
+            </div>
+            <div class="keyword pb-2">
+              <span>Keyword/Headline: </span>
+              <span class="bold"></span>
+            </div>
+            <div class="date pb-2">
+              <span>Date: </span>
+              <span class="bold">For All dates</span>
+            </div>
+            <div class="divider mb-2"></div>
+            <div class="date">
+              <span>Latest 200 results displayed </span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label class="input-label select-label">Date Span</label>
+          <div class="app-select-container">
+            <!--<select class="app-select form-control" (change)="changeDateSpan($event)" [(ngModel)]="initialData.dateSpan">
+              <option *ngFor="let item of companyDropdownOptions" value={{item.id}}>{{item.name}}
+              </option>
+            </select>-->
+            <angular2-multiselect [data]="itemList2"
+                                  [(ngModel)]="selectedItems2"
+                                  [settings]="settings2"
+                                  (onSelect)="OnItemDeSelectDateSpan($event)"
+                                  (onDeSelect)="OnItemDeSelect($event)"
+                                  (onSelectAll)="onSelectAll($event)"
+                                  (onDeSelectAll)="onDeSelectAll($event)">
+            </angular2-multiselect>
+            <span class="img-span">
+              <img alt="alternative text" class="img-col" src="assets/images/Icons_Chevron_Down.png">
+            </span>
+          </div>
+        </div>
+        <div class="form-group mt-4 dates" *ngIf="showDates">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker1" placeholder="From Date" [formControl]="initialData.date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-lg-6">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker2" placeholder="To Date"
+                       [formControl]="initialData.serializedDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label class="input-label">Report group</label>
+          <div class="app-select-container">
+            <angular2-multiselect [data]="itemList"
+                                  [(ngModel)]="selectedItems"
+                                  [settings]="settings"
+                                  (onSelect)="onItemSelect($event)"
+                                  (onDeSelect)="OnItemDeSelect($event)"
+                                  (onSelectAll)="onSelectAll($event)"
+                                  (onDeSelectAll)="onDeSelectAll($event)">
+            </angular2-multiselect>
+            <span class="img-span">
+              <img alt="alternative text" class="img-col" src="assets/images/Icons_Chevron_Down.png">
+            </span>
+          </div>
+
+        </div>
+        <div class="form-group mt-4">
+          <label class="input-label">Keyword / headline</label>
+          <input class="app-text-box form-control" type="text"
+                 [(ngModel)]="initialData.keyword"/>
+        </div>
+        <div class="">
+          <button class="app-button-secondary m-t-10 mr-4 ml-1" (click)="onReset()">Reset</button>
+
+          <button class="app-button-primary m-t-10" (click)="onSearch()">Search</button>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 scroll-up-to-here" style="position: relative" >
+        <div class="research pt-lg-4 pt-4 animated animatedFadeInUp fadeInUp">
+          <ag-grid-angular
+            class="{{appliedThemeClassOnTable}}"
+            [rowData]="rowDataChange"
+            [columnDefs]="columnDefsChange"
+            [defaultColDef]="defaultColDef"
+            [floatingFilter]="false"
+            [animateRows]="true"
+            [pagination]="true"
+            [paginationPageSize]="selectedRowsPerPage"
+            [suppressPaginationPanel]="true"
+            (paginationChanged)="onAgGridPaginationChanged($event)"
+            (gridReady)="onGridReady($event)"
+            (firstDataRendered)="onFirstDataRendered($event)">
+          </ag-grid-angular>
+          <div class="ad-search-pagination mt-2">
+            <div class="pages-text">Page {{currentAgGridPage + 1}} of {{totalAgGridPages}}</div>
+            <ul class="hide">
+              <li *ngFor="let item of rowDataChange | paginate: { itemsPerPage: selectedRowsPerPage, currentPage: p }">
+                {{ item }}
+              </li>
+            </ul>
+            <pagination-controls #pageApi
+                                 (pageChange)="p = pageChanged($event)"
+                                 previousLabel=""
+                                 nextLabel="">
+            </pagination-controls>
+          </div>
+        </div>
+        <ngx-ui-loader [loaderId]="'loader-02'"></ngx-ui-loader>
+      </div>
+    </div>
+  </div>
+</div>

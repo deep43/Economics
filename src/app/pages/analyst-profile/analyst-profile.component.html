@@ -1,0 +1,49 @@
+<div class="profile-page">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 col-sm-8">
+        <div class="research pt-lg-2">
+          <div class="row">
+            <div class="col-4">
+              <img alt="alternative text" src="{{team.image}}" class="research-team-image pr-0"/>
+            </div>
+            <div class="col-8 details-section pl-0">
+              <div class="name">{{team.name}}</div>
+              <div class="phone">{{team.phone}}</div>
+              <div class="email">{{team.email}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="profile-details pb-3 pt-lg-4">
+                Mr. Tal is responsible for analyzing economic developments and their implications for
+                North American fixed income, equity, foreign exchange and commodities markets.
+                He also acts in an advisory capacity to bank officers on issues related to wealth
+                management, household/corporate credit and risk.
+              </p>
+
+              <p class="profile-details pb-3">
+                Well-known for his ground-breaking published research on topics such as labour
+                market dynamics, real estate, credit markets, international trade and business
+                economic conditions, Mr. Tal not only contributes to the conversation, but frequently
+                sets the agenda.
+              </p>
+
+              <p class="profile-details pb-3">
+                He has close to 20 years’ experience in the private sector advising clients, industry
+                leaders, corporate boards, trade associations, and governments on economic and
+                financial issues.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="research pt-lg-2">
+          <h4 class="section-heading">RESEARCH TEAM</h4>
+          <app-research-team [teams]="teams"></app-research-team>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,361 @@
+@import '../../../styles/variables';
+
+::ng-deep .high-contrast{
+  .footer-component {
+    background: $HighContrastCharcoal !important;
+  }
+}
+
+.footer-component {
+  background: $Charcoal;
+  color: white;
+  padding: 30px 0;
+  .footer-container{
+    @include not-mobile{
+      padding: 0 30px;
+    }
+  }
+  .container {
+    @include mobile {
+      padding: 0 30px;
+    }
+  }
+
+  @include mobile {
+    padding-top: 0;
+    color: $StrokeGrey;
+  }
+
+  .first-row {
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    @include mobile {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    margin-bottom: 30px;
+    @include not-mobile{
+      margin-right: 10px;
+      margin-left: 0;
+    }
+
+    @include mobile {
+      margin-bottom: 0;
+    }
+  }
+
+  .second-row {
+    &.high-contrast {
+      a {
+        text-decoration: underline;
+      }
+    }
+    .static-col {
+      @include mobile{
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .mobile-drop-down {
+    @include mobile {
+      font-family: $CIBCSemiBoldFont;
+      padding: 15px 0 !important;
+      border-bottom: 1px solid $StrokeGrey;
+      color: white !important;
+      display: block;
+      transition: border-bottom 0.5s ease;
+      &.opened{
+        border-bottom: none;
+      }
+      .dp-icon {
+        position: relative;
+        &.opened{
+          &:after {
+            transform: rotate(180deg);
+          }
+        }
+        &:after {
+          width: 0;
+          height: 0;
+          content: "";
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 12px solid white;
+          position: absolute;
+          right: 15px;
+          top: 7px;
+        }
+      }
+    }
+  }
+
+  .for-mobile-drop-down-items-container {
+    @include mobile {
+      max-height: 0;
+      transition: max-height 0.4s ease-out;
+      overflow: hidden;
+    }
+    &.opened {
+      @include mobile {
+        max-height: 500px;
+        transition: max-height 0.4s ease-in;
+      }
+    }
+  }
+
+  .for-mobile-footer {
+    &:last-child {
+      @include mobile {
+        padding-bottom: 60px;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+
+  .footer-link {
+    width: 100%;
+    font-size: 1rem;
+    display: block;
+    line-height: 2rem;
+    color: white;
+
+    &.icon-links {
+      i {
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0 10px;
+        border-right: 1px solid white;
+
+        &:last-child {
+          border: none;
+        }
+
+        &:hover {
+          filter: invert(100%);
+          /*color: black;
+          &:before{
+            background: white;
+          }*/
+        }
+      }
+      .contrast-icon {
+        font-size: 1.125rem;
+        margin-left: 10px;
+      }
+    }
+
+    &.text-links {
+
+      .action {
+        border-right: 1px solid white;
+        padding: 0 10px;
+
+        &:last-child {
+          border: none;
+        }
+      }
+      .active {
+        font-family: $CIBCSemiBoldFont;
+      }
+    }
+
+    &.important {
+      font-size: 1.125rem;
+      font-family: $CIBCSemiBoldFont;
+    }
+    &.important-heading {
+      @extend .important;
+      padding-bottom: 10px;
+      color: white;
+    }
+  }
+  .top-thick-text-col{
+    @include not-mobile{
+      margin-top: 9px;
+    }
+  }
+  .thick-text-col {
+    @include mobile {
+      padding: 25px 15px;
+    }
+  }
+  .thick-text {
+    font-family: $CIBCSemiBoldFont;
+    font-size: 1.125rem;
+    padding-bottom: 15px;
+    color: white;
+
+  }
+
+  .contact-us {
+    text-align: right;
+
+    @include mobile {
+      width: 100%;
+      border-bottom: 1px solid $StrokeGrey;
+      padding-bottom: 30px;
+    }
+
+    .contact-us-btn {
+      outline-color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      color: white;
+      font-size: 1.125rem;
+      padding: 10px 40px;
+      transition: background-color 0.3s ease-in-out;
+      @include mobile {
+        width: 100%;
+      }
+
+      &:hover {
+        color: $Charcoal;
+        background: white;
+        //border: 1px solid $StrokeGrey;
+      }
+    }
+  }
+  .mobile-accessibility {
+    a{
+      &:hover{
+        text-decoration: none;
+      }
+    }
+
+    .bold{
+      font-family: WhitneySemibold;
+    }
+
+    .action{
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    @include mobile {
+      margin-top: 20px;
+      border-top: 1px solid white;
+      padding-top: 20px;
+    }
+  }
+
+  .last-row {
+    font-size: 0.75rem;
+    .logo-text-row{
+      margin-left: 0;
+      @include not-mobile{
+        margin-right: 10px;
+      }
+    }
+    .privacy-row {
+      text-align: right;
+      padding: 15px 0;
+      border-top: 1px solid white;
+      margin-top: 15px;
+      @include mobile {
+        border-top: none;
+        text-align: left;
+      }
+      .mobile-privacy-row {
+        @include mobile {
+          border-top: 1px solid white;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          margin-right: 15px;
+        }
+      }
+
+      .footer-link-privacy {
+        @extend .footer-link;
+        display: inline;
+        padding-left: 30px;
+        @include mobile {
+          padding-left: 0;
+          display: block
+        }
+
+      }
+    }
+    .social-section {
+      text-align: right;
+      padding-right: 0;
+      @include mobile {
+        display: none;
+      }
+      span {
+        font-size: 1.5rem;
+        padding: 5px 8px;
+
+        img{
+          width: 23px;
+          height: 23px;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    .social-row{
+      @include not-mobile{
+        margin-right: 10px;
+      }
+    }
+    .footer-logo-section {
+      display: inline-flex;
+      @include mobile {
+        display: block;
+      }
+    }
+    .footer-logo {
+      @include mobile {
+        border-top: 1px solid white;
+        padding: 20px 0;
+      }
+      .logo-image {
+        width: 150px;
+        @include mobile {
+          display: inline;
+        }
+      }
+      .mobile-social-section {
+        @include mobile {
+          display: inline;
+          float: right;
+          font-size: 1.125rem;
+          margin-top: 8px;
+          span {
+            padding-left: 8px;
+
+            img{
+              width: 21px;
+              height: 21px;
+            }
+          }
+        }
+        @include not-mobile {
+          display: none;
+        }
+      }
+    }
+    .connect-text {
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      @include mobile {
+        display: block;
+        padding-left: 0;
+      }
+    }
+
+    .mobile-connect-text {
+      @include mobile {
+        display: inline;
+      }
+      @include not-mobile {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+@import '../../../styles/variables';
+
+::ng-deep .mat-calendar-body-selected{
+  background-color: $CIBCBurgundy !important;
+}
+
+::ng-deep .advance-search-page {
+  padding: 0 10px;
+
+  .dates {
+    .mat-form-field-infix {
+      width: auto;
+    }
+
+    .mat-icon-button{
+      &:focus{
+        outline: none;
+      }
+    }
+
+    .mat-form-field {
+      font-family: WhitneyRegular;
+    }
+
+    .mat-form-field-label {
+      font-weight: 800 !important;
+      color: $TextGrey;
+    }
+
+
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: $CIBCBurgundy;
+    }
+    .mat-form-field.mat-focused .mat-form-field-label {
+      color: $CIBCBurgundy;
+    }
+  }
+
+  .ad-search-pagination {
+    font-size: 0.875rem;
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%;
+    .ngx-pagination {
+      li {
+        &.pagination-next, &.pagination-previous {
+          border-bottom: none;
+          position: relative;
+        }
+
+        a, button {
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+    .pages-text {
+      padding-top: 5px;
+      font-family: WhitneyLightItalic;
+    }
+    .last-page {
+      cursor: pointer;
+      padding-top: 3px;
+      margin-left: 10px;
+      border-bottom: 2px solid $StrokeGrey;
+    }
+
+    .pagination-previous, .pagination-next {
+      a:hover, button:hover {
+        background: none;
+      }
+      a, button {
+        &:hover {
+          background: none;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .pagination-previous a::before, .pagination-next a::after {
+      color: $CIBCBurgundy;
+    }
+
+    .pagination-previous a::before, .pagination-previous.disabled::before {
+      content: "\e843";
+      font-family: 'feather' !important;
+      font-size: 1.25rem;
+      margin-right: 0;
+      margin-top: 5px;
+      position: absolute;
+      top: -17px;
+      right: 0;
+    }
+
+    .pagination-next a::after, .pagination-next.disabled::after {
+      content: "\e844";
+      font-family: 'feather' !important;
+      font-size: 1.25rem;
+      margin-left: 0;
+      position: absolute;
+      top: -13px;
+      right: 0;
+    }
+  }
+
+  .app-button-secondary, .app-button-primary {
+    padding: 10px 55px;
+  }
+  .headline {
+    color: $CIBCBurgundy;
+    font-weight: 600;
+  }
+  .divider {
+    border-bottom: 1px solid $StrokeGrey;
+  }
+  .flash-links-section {
+    font-size: 0.8125rem;
+
+    .row {
+      margin: 0 15px 0 0;
+    }
+    .flash-link {
+      color: $CIBCBurgundy;
+      cursor: pointer;
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 2px;
+      font-family: $CIBCSemiBoldFont;
+      line-height: 1.8;
+      transition: border 500ms linear;
+      &:after {
+        content: '';
+        width: 0;
+        height: 1px !important;
+        display: block;
+        background: $CIBCBurgundy;
+        transition: 500ms;
+      }
+      &:hover {
+        text-decoration: none;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .table-links {
+    font-size: 0.75rem;
+    color: $CIBCBurgundy;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 10px;
+    border-right: 1px solid $CIBCBurgundy;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .table-links-row {
+    margin: 15px;
+    font-weight: 600;
+  }
+
+  .research {
+    .info-section {
+      padding: 15px;
+      border: 1px solid $StrokeGrey;
+      font-size: 0.875rem;
+      margin-right: 8px;
+
+      .bold {
+        font-weight: bold;
+        font-family: WhitneySemibold;
+      }
+    }
+  }
+
+  .forecast-report {
+    .section-heading {
+      margin-bottom: 0;
+    }
+    .news-list {
+      padding: 0 35px 0 0 !important;
+    }
+  }
+
+  ::ng-deep {
+    .mat-tab-label {
+      padding: 0 15px !important;
+    }
+
+    .mat-tab-label .mat-tab-label-content {
+      white-space: normal !important;;
+    }
+
+    .mat-tab-labels {
+      @include not-mobile {
+        // padding-right: 10px;
+      }
+    }
+    .mat-tab-header-pagination {
+      border: 1px solid $StrokeGrey;
+      display: none;
+    }
+    .mat-tab-group {
+      font-family: $CIBCLightRegularFont;
+      // padding: 0 4px 0 8px;
+    }
+    .mat-tab-body-content {
+      overflow: hidden !important;
+    }
+
+    .mat-tab-body-wrapper {
+      border: 1px solid $StrokeGrey;
+    }
+
+    .mat-tab-label {
+      /*@include not-mobile {
+        width: 33.33%;
+      }*/
+      opacity: 1 !important;
+      border-left: 1px solid $StrokeGrey;
+      border-top: 1px solid $StrokeGrey;
+      border-bottom: 1px solid $StrokeGrey;
+      height: 55px;
+      max-width: 200px;
+      min-width: auto;
+      display: flex;
+
+      &:last-child {
+        border-right: 1px solid $StrokeGrey;
+      }
+
+    }
+    .mat-tab-label-content {
+      font-size: 0.9375rem;
+      font-family: $CIBCLightRegularFont;
+      color: $TextGrey;
+    }
+
+    .mat-tab-label-active {
+      border-top: 3px solid $CIBCBurgundy;
+      border-bottom: none;
+      background: white;
+      .mat-tab-label-content {
+        color: $CIBCBurgundy;
+      }
+    }
+    .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+      display: none;
+    }
+    .mat-tab-header, .mat-tab-nav-bar {
+      border-bottom: none;
+      margin-top: 15px;
+      margin-bottom: -1px;
+      background: white;
+    }
+  }
+}

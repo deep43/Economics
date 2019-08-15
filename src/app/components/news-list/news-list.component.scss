@@ -1,0 +1,50 @@
+@import '../../../styles/variables';
+
+.img-col {
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  top: 2px;
+  right: -5px;
+
+  @include not-mobile {
+    margin-bottom: 2px;
+  }
+  @include mobile {
+    // margin-top: 10px;
+  }
+}
+
+.news-list{
+  font-size: 0.8125rem;
+
+  .date{
+    font-family: $CIBCSemiBoldFont;
+  }
+
+  .title{
+    font-family: $CIBCSemiBoldFont;
+    color: $CIBCBurgundy;
+    cursor: pointer;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 1px !important;
+      display: block;
+      background: $CIBCBurgundy;
+      transition: 500ms;
+    }
+    &:hover{
+      text-decoration: none;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+
+  .description{
+    margin-bottom: 0.3rem;
+  }
+}

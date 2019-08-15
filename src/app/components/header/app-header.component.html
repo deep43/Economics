@@ -1,0 +1,238 @@
+<mat-sidenav-container class="sidenav-container" (scroll)="onWindowScroll($event);">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+               [ngClass]="{hidden: !(isHandset$.matches)}"
+               [attr.role]="(isHandset$.matches) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$.matches) ? 'over' : 'side'" [autoFocus]="false">
+    <!--<mat-toolbar>Menu</mat-toolbar>-->
+    <mat-nav-list>
+      <a mat-list-item class="mobile-menu-link navigation-bar search-bar">
+        <input placeholder="Search" class="mobile-search" type="text">
+        <i class="ti-search search-icon"></i>
+      </a>
+      <a mat-list-item href="#" class="mobile-menu-link"
+         [routerLink]="'/'" (click)="toggleDrawer()">HOME</a>
+      <a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="'/calendar'"
+         (click)="toggleDrawer()">CALENDAR</a>
+      <!--<a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="'/calendarnew'"
+         (click)="toggleDrawer()">NEW CALENDAR</a>-->
+      <a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="'/refmeterial'"
+         (click)="toggleDrawer()">REFERENCE MATERIAL</a>
+      <a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="'/macrostrategy'"
+         (click)="toggleDrawer()">MACRO STRATEGY</a>
+      <a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="'/advancesearch'"
+         (click)="toggleDrawer()">ADVANCE SEARCH</a>
+      <!--<a mat-list-item class="mobile-menu-link" href="#"
+         [routerLink]="''"
+         (click)="toggleDrawer()"></a>-->
+      <a mat-list-item href="#" class="mobile-menu-link reports" (click)="onReportClick($event)">RESEARCH SITES
+        <i class="icofont icofont-thin-right" [ngClass]="{'hidden': reportMenuOpened}"></i>
+        <i class="icofont icofont-thin-down" [ngClass]="{'hidden': !reportMenuOpened}"></i>
+        <div class="reports-menu" [@openCloseReports]="reportMenuOpened ? 'open' : 'closed'">
+          <div class="report-link"><a [routerLink]="'/'" (click)="toggleDrawer()">Conferences</a></div>
+          <div class="report-link"><a [routerLink]="'/'" (click)="toggleDrawer()">Equity Research</a></div>
+          <div class="report-link"><a [routerLink]="'/'" (click)="toggleDrawer()">Macro Strategy</a></div>
+        </div>
+      </a>
+
+    </mat-nav-list>
+
+    <div class="mobile-head-footer-section">
+      <div class="container">
+        <!--<div class="row">
+          <div class="col-6 register" [routerLink]="'/register'" (click)="toggleDrawer()">Register</div>
+          <div class="col-6"><a class="sign-on" href="http://crossleafdevelopment.com/loginrefresh/Login_Page.html">Sign
+            On</a></div>
+        </div>-->
+        <div class="row">
+          <!--<div class="col-12 padding-0 padding-0-mobile">
+            Special Offers
+          </div>-->
+          <div class="col-12 padding-0 padding-0-mobile">
+            <a href="#" class="link">CIBC Capital Market</a>
+            <a href="#" class="link">CIBC Website</a>
+            <a class="link book-font" [routerLink]="'/emailalerts'" (click)="toggleDrawer()">My Email Alerts</a>
+          </div>
+        </div>
+      </div>
+      <!--<div class="special-offers">
+        Special Offers
+      </div>
+      <a href="#" class="link">CIBC Capital Market</a>
+      <a href="#" class="link">CIBC Website</a>-->
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="{'sidebar-opened': toggleSideNav}">
+    <mat-toolbar color="primary" class="header-toolbar">
+      <div *ngIf="isHandset$.matches" class="mobile-toolbar">
+        <div class="handset-logo">
+          <a [routerLink]="'/'">
+            <img alt="alternative text" class="footer-logo-image" src="assets/images/Footer_Logo.png" alt="CIBC">
+            <div class="mobile-menu-heading">
+              <span class="mobile-logo-heading">CIBC CAPITAL MARKETS</span>
+              <span class="mobile-logo-heading-2">Economics</span>
+            </div>
+          </a>
+        </div>
+        <!--<div class="handset-sign-on">
+          <a (click)="toggleMobileDropdown()"><i class="feather icon-more-horizontal"></i>
+          </a>
+        </div>-->
+        <!--<button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          class="black-iocn">
+          <i class="icofont icofont-navigation-menu"></i>
+        </button>-->
+        <button type="button"
+                aria-label="Toggle sidenav"
+                (click)="toggleDrawer($event)"
+                class="black-iocn hamburger hamburger--collapse" [ngClass]="{'is-active': toggleSideNav}">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+      <!--<div class="mobile-dropdown-menu"
+           [ngClass]="{hidden: !(isHandset$.matches), shown: toggleDropdown}">
+        <a [routerLink]="'/register'" class="dropdown-menu-item" (click)="toggleMobileDropdown()">
+          <i class="icofont icofont-ui-contact-list"></i>
+          <div class="item-text">Register</div>
+        </a>
+        <a [routerLink]="'/'" class="dropdown-menu-item" (click)="toggleMobileDropdown()">
+          <i class="icofont icofont-login"></i>
+          <div class="item-text">Sign On</div>
+        </a>
+      </div>-->
+
+      <div [ngClass]="{hidden: (isHandset$.matches)}" class="menu-row" id="menu-row">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 cibc-flex-col">
+              <div>
+                <a class="top-link" href="#">CIBC Capital Markets</a>
+                <a class="top-link" href="#">Conferences</a>
+                <a class="top-link" href="#">Research websites</a>
+                <a class="top-link" href="#">CIBC websites</a>
+                <a class="top-link" href="#" [routerLink]="'/home2'">Home Page 2</a>
+                <a class="top-link" href="#" [routerLink]="'/home3'">Home Page 3</a>
+                <a class="top-link" href="#" [routerLink]="'/home4'">Home Page 4</a>
+              </div>
+              <div class="top-right-menu-col">
+                <a class="top-link book-font" [routerLink]="'/emailalerts'">My email alerts</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-header" [ngClass]="{hidden: (isHandset$.matches)}">
+        <div class="logo-row-container">
+          <div class="container">
+            <div class="logo-row">
+              <div class="col-lg-7 col-sm-7">
+                <a [routerLink]="'/'">
+                  <img alt="alternative text" class="footer-logo-image" src="assets/images/Footer_Logo.png"
+                       alt="CIBC">
+                </a>
+                <span class="logo-heading">CIBC CAPITAL MARKETS</span>
+                <span class="logo-heading-2">Economics</span>
+                <!--<div class="logo-text">
+                  <span cl
+                  ass="logo-heading">CIBC CAPITAL MARKETS</span>
+                  <span class="logo-heading-2">Economics</span>
+                </div>-->
+              </div>
+              <div class="col-lg-5 col-sm-5 link-col reg-links">
+                <div class="search-container">
+                  <label class="sr-only" for="search-box"></label>
+                  <input type="search" placeholder="Search" name="search-box" id="search-box"/>
+                  <img alt="alternative text" class="icon-search" src="assets/images/Search_Icon.png"/>
+                </div>
+                <!--<a class="logo-row-link register" [routerLink]="'/register'">Register</a>
+                <a class="logo-row-link logo-row-link-border"
+                   href="http://crossleafdevelopment.com/loginrefresh/Login_Page.html">Sign On</a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="links-container" id="sticky-header">
+          <div class="relative-menu">
+            <div class="container">
+              <div class="row links-row">
+                <div class="col-lg-12 col-sm-12">
+                  <!--<a class="link" href="#" [ngClass]="{'active': '/' === router.url || '' === router.url}">HOME</a>-->
+                  <!--<a class="link reports" href="#" (click)="openHeaderMenu($event)"
+                     [ngClass]="{'active': headerMenuOpened}">DOCUMENTS</a>-->
+                  <a class="link" href="#"
+                     [routerLink]="'/calendar'"
+                     [ngClass]="{'active': '/calendar' === router.url}">CALENDAR</a>
+                  <!--<a class="link" [routerLink]="'/calendarnew'"
+                     [ngClass]="{'active': '/calendarnew' === router.url}">NEW CALENDAR</a>-->
+                  <a class="link" href="#"
+                     [routerLink]="'/refmeterial'"
+                     [ngClass]="{'active': '/refmeterial' === router.url}">REFERENCE MATERIAL</a>
+                  <a class="link" href="#"
+                     [routerLink]="'/macrostrategy'"
+                     [ngClass]="{'active': '/macrostrategy' === router.url}">MACRO STRATEGY</a>
+                  <a class="link" href="#"
+                     [routerLink]="'/advancedsearch'"
+                     [ngClass]="{'active': '/advancedsearch' === router.url}">ADVANCED SEARCH</a>
+                  <!--<a class="link" href="#"
+                     [routerLink]="''"
+                     [ngClass]="{'active': '' === router.url}">RESEARCH SITES</a>-->
+                  <a class="link reports" href="#" (click)="openHeaderMenu($event)"
+                     [ngClass]="{'active': headerMenuOpened}">RESEARCH SITES</a>
+                </div>
+              </div>
+            </div>
+            <div class="header-menus" [@openClose]="headerMenuOpened ? 'open' : 'closed'"
+                 (clickOutside)="clickedOutSearch($event)">
+              <div class="container header-menus-container pt-4 pb-4">
+                <div class="row ">
+                  <div class="col-lg-3 col-sm-4 heading">
+                <span class="">
+                  RESEARCH SITES
+                </span>
+                  </div>
+                  <div class="col-lg-9 col-sm-8">
+                    <div class="header-menu"><a class="links" [routerLink]="'/'">Conferences</a></div>
+                    <div class="header-menu"><a class="links" [routerLink]="'/'">Equity Research</a></div>
+                    <div class="header-menu"><a class="links" [routerLink]="'/'">Macro Strategy</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content class="header-content">
+    </ng-content>
+
+    <div class="economics-cookie" [@openClose]="!cookieSaved ? 'open' : 'closed'">
+      <div class="container">
+        <div class="row cookie-row">
+          <div class="col-12 col-lg-9">
+            <h4 class="cookie-heading mb-4">Cookie notice</h4>
+            <div class="cookie-content">
+              CIBC uses cookies to understand how you use our website and to improve your experience.
+              This includes personalizing CIBC content on our mobile apps, our website and third-party sites and apps.
+              To learn more about how we do this, go to
+              <a class="manage-link animated-link">Manage my advertising preferences.</a>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 action-col">
+            <button class="app-button-secondary" (click)="onCookieSaved()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

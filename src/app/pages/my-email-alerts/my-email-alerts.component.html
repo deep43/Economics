@@ -1,0 +1,250 @@
+<div class="email-alerts-page">
+  <div class="container app-container animated animatedFadeInUp fadeInUp">
+    <div class="row app-section-container">
+      <div class="col-12 pt-lg-2 pb-lg-2">
+        <h4 class="section-heading">EMAIL ALERTS</h4>
+      </div>
+    </div>
+    <div class="row app-section-container">
+      <div class="col-12 col-sm-4">
+        <div class="research pt-lg-2">
+          <div class="row">
+            <div class="col-12">
+              <p class="profile-details pb-3">
+                If you are a client of CIBC (CIBC Capital Markets,
+                CIBC World Markets Inc., or CIBC Wood Gundy), an
+                email alert can be sent to you whenever a report is
+                published to the CIBC Economics website. To apply
+                for this email service, please fill in this form and click
+                “Send”.
+              </p>
+
+              <p class="profile-details pb-3">
+                Please note that email alerts are only available to
+                CIBC clients. Please include the name of your CIBC
+                sales representative in the fields below.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-8">
+        <div class="research pt-lg-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="step-2">
+                <form [formGroup]="myProfileForm" class="my-profile-form" (ngSubmit)="onSubmitMyProfile()">
+                  <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label class="input-label">First Name *</label>
+                        <input formControlName="firstName" class="app-text-box form-control"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.firstName.errors }"
+                               type="text" value="John"/>
+                        <div *ngIf="submittedMyProfile && fmp.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.firstName.errors.required">First Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label class="input-label">Last Name *</label>
+                        <input formControlName="lastName" class="app-text-box form-control"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.lastName.errors }" type="text"/>
+                        <div *ngIf="submittedMyProfile && fmp.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.lastName.errors.required">Last Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Company</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Position</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label select-label">Member of the media</label>
+                        <div class="app-select-container">
+                          <!--<select class="app-select form-control">
+                            <option *ngFor="let item of mediaMember" value={{item.id}} selected>{{item.name}}
+                            </option>
+                          </select>-->
+                          <angular2-multiselect [data]="itemList" class="form-control"
+                                                [(ngModel)]="selectedItems"
+                                                [settings]="settings"
+                                                (onSelect)="OnItemDeSelectDateSpan($event)"
+                                                (onDeSelect)="OnItemDeSelect($event)"
+                                                (onSelectAll)="onSelectAll($event)"
+                                                (onDeSelectAll)="onDeSelectAll($event)">
+                          </angular2-multiselect>
+                          <span class="img-span">
+                              <img alt="alternative text" class="img-col" src="assets/images/Icons_Chevron_Down.png">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group not-visible">
+                        <label class="input-label">Position</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Address</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Phone Number</label>
+                        <input appPhoneMask formControlName="phone" class="app-text-box form-control"
+                               pattern="^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$" maxlength="14"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.phone.errors }" type="text"/>
+                        <div *ngIf="submittedMyProfile && fmp.phone.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.phone.errors.pattern">Format should be: (111) 111-1111</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">City</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Fax</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Province / state</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Postal / zip code</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Email *</label>
+                        <input formControlName="email" class="app-text-box form-control"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.email.errors }" type="text"/>
+                        <div *ngIf="submittedMyProfile && fmp.email.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.email.errors.required">Email is required</div>
+                          <div *ngIf="fmp.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Retype Email*</label>
+                        <input formControlName="retypeEmail" class="app-text-box form-control"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.retypeEmail.errors }" type="text"/>
+                        <div *ngIf="submittedMyProfile && fmp.retypeEmail.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.retypeEmail.errors.mustMatch">Email must match with Retype Email</div>
+                          <div *ngIf="fmp.retypeEmail.errors.email">Retype Email must be a valid email address</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label select-label">Country *</label>
+                        <div class="app-select-container">
+                          <!--<select formControlName="country" class="app-select form-control"
+                                  [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.country.errors }">
+                            <option class="" value="" selected>Select</option>
+                            <option *ngFor="let item of countryDropdownOptions" value={{item.id}}>{{item.name}}
+                            </option>
+                          </select>-->
+                          <angular2-multiselect [data]="countryDropdownOptions"
+                                                [(ngModel)]="selectedItems2"
+                                                [settings]="settings2"
+                                                (onSelect)="OnItemDeSelectDateSpan($event)"
+                                                (onDeSelect)="OnItemDeSelect($event)"
+                                                (onSelectAll)="onSelectAll($event)"
+                                                (onDeSelectAll)="onDeSelectAll($event)">
+                          </angular2-multiselect>
+                          <span class="img-span">`
+                                  <img alt="alternative text" class="img-col" src="assets/images/Icons_Chevron_Down.png">
+                              </span>
+                        </div>
+                        <div *ngIf="submittedMyProfile && fmp.country.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.country.errors.required">Country is required</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">CIBC sales representative</label>
+                        <input class="app-text-box form-control" type="text"/>
+                      </div>
+                    </div>
+
+
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="input-label">CIBC sales representative</label>
+                        <textarea class="app-text-box form-control" type="text" rows="6"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Captcha Image*</label>
+                        <!--<input formControlName="firstName" class="app-text-box form-control"
+                               type="text" value="John"/>-->
+                        <re-captcha (resolved)="resolved($event)" siteKey="6LcZOawUAAAAAGRth8EBH1D-Yoe80-2-D6c8Qq0W"></re-captcha>
+
+                      </div>
+                    </div>
+                    <!--<div class="col-12 col-sm-6 col-md-6 col-lg-6 m-t-10">
+                      <div class="form-group">
+                        <label class="input-label">Enter the values displayed on the image *</label>
+                        <input formControlName="captcha" class="app-text-box form-control"
+                               [ngClass]="{ 'is-invalid': submittedMyProfile && fmp.captcha.errors }"
+                               type="text" value="John"/>
+                        <div *ngIf="submittedMyProfile && fmp.captcha.errors" class="invalid-feedback">
+                          <div *ngIf="fmp.captcha.errors.required">First Name is required</div>
+                        </div>
+                      </div>
+                    </div>-->
+
+                  </div>
+                </form>
+              </div>
+              <div class="next-row row mt-lg-4">
+                <div class="col-12 col-sm-8 previous-col">
+                  <p>
+                    Your email alerts will be activated pending a review of your request. All requests
+                    sent during business hours, Monday to Friday, are reviewed within 48 hours.
+                    Inquiries can be directed to
+                    <a class="email" href="mailto:cibccmeconomics@cibc.com?subject=CIBC Economics Email Alert Inquiry">
+                      cibccmeconomics@cibc.com
+                    </a>
+                  </p>
+
+                </div>
+                <div class="col-12 col-sm-4 text-right next-col">
+                  <button class="app-button-primary" (click)="onSubmitMyProfile()">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="calender-page">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 col-lg-8"    >
+        <div class="research pt-lg-2">
+          <div class="row">
+            <div class="col-8">
+              <h4 class="section-heading pt-0">WEEK AHEAD CALENDAR</h4>
+            </div>
+            <div class="col-4 text-right">
+              <span class="date">May 7, 2019</span>
+            </div>
+          </div>
+          <mat-tab-group (selectedTabChange)="onSelectedTabChange()">
+            <mat-tab label="Canada">
+              <ag-grid-angular
+                class="{{appliedThemeClassOnTable}} pl-3 pr-3"
+                [rowData]="rowDataChange"
+                [columnDefs]="columnDefsChange"
+                [defaultColDef]="defaultColDef"
+                [floatingFilter]="false"
+                [animateRows]="true"
+                [pagination]="true"
+                [paginationPageSize]="selectedRowsPerPage"
+                [suppressPaginationPanel]="true"
+                (paginationChanged)="onPaginationChangedCanada($event)"
+                (gridReady)="onGridReadyCanada($event)"
+                (firstDataRendered)="onFirstDataRendered($event)">
+              </ag-grid-angular>
+              <div class="row page-controls">
+                <div class="col-12">
+                  <a class="prev pl-3" href="#" (click)="goToPrevAgGridPage($event, gridApiCanada)"
+                     [ngClass]="{'disabled': currentAgGridPage === 0}">Previous</a>
+                  <a class="next" href="#" (click)="goToNextAgGridPage($event, gridApiCanada)"
+                     [ngClass]="{'disabled': lastCanadaPage}">Next</a>
+                </div>
+              </div>
+              <div class="row bottom-details">
+                <div class="col-4 col-md-3">
+                  <div class="pl-3"> H, M, L:</div>
+                  <div class="pl-3"> SAAR:</div>
+                  <div class="pl-3"> Consensus Source:</div>
+                </div>
+                <div class="col-8 col-md-9">
+                  <div> High, Medium or Low Significance</div>
+                  <div> Seasonally Adjusted Annual Rate</div>
+                  <div> Bloomberg</div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="U.S.">
+              <ag-grid-angular
+                class="{{appliedThemeClassOnTable}} pl-3 pr-3"
+                [rowData]="rowDataChange"
+                [columnDefs]="columnDefsChange"
+                [defaultColDef]="defaultColDef"
+                [floatingFilter]="false"
+                [animateRows]="true"
+                [pagination]="true"
+                [suppressPaginationPanel]="true"
+                [paginationPageSize]="selectedRowsPerPage"
+                (paginationChanged)="onPaginationChangedUS($event)"
+                (gridReady)="onGridReadyUS($event)"
+                (firstDataRendered)="onFirstDataRendered($event)">
+              </ag-grid-angular>
+              <div class="row page-controls">
+                <div class="col-12">
+                  <a class="prev pl-3" href="#" (click)="goToPrevAgGridPage($event, gridApiUS)"
+                     [ngClass]="{'disabled': currentUSPage === 0}">Previous</a>
+                  <a class="next" href="#" (click)="goToNextAgGridPage($event, gridApiUS)"
+                     [ngClass]="{'disabled': lastUSPage}">Next</a>
+                </div>
+              </div>
+              <div class="row bottom-details">
+                <div class="col-4 col-md-3">
+                  <div class="pl-3"> H, M, L:</div>
+                  <div class="pl-3"> SAAR:</div>
+                  <div class="pl-3"> Consensus Source:</div>
+                </div>
+                <div class="col-8 col-md-9">
+                  <div> High, Medium or Low Significance</div>
+                  <div> Seasonally Adjusted Annual Rate</div>
+                  <div> Bloomberg</div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="research pt-lg-2 pt-4">
+          <div>
+            <a class="view-all-link"
+               target="_blank"
+               href="https://economics.cibccm.com/economicsweb/cds?ID=4&TYPE=EC_PDF&REPORT_TYPE=ECO_CALENDAR">
+              CANADIAN MONTHLY CALENDAR
+            </a>
+          </div>
+          <div>
+            <a class="view-all-link"
+               target="_blank"
+               href="https://economics.cibccm.com/economicsweb/cds?ID=5&TYPE=EC_PDF&REPORT_TYPE=ECO_CALENDAR">
+              US MONTHLY CALENDAR
+            </a>
+          </div>
+          <h4 class="section-heading mb-2 mt-lg-4 pt-1">RESEARCH TEAM</h4>
+          <app-research-team [teams]="teams"></app-research-team>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

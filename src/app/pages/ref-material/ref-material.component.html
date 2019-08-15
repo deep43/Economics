@@ -1,0 +1,34 @@
+<div class="ref-material-page">
+  <div class="container app-container">
+    <div class="row app-section-container">
+      <div class="col-12 col-sm-8">
+        <div class="research pt-lg-4">
+          <h4 class="section-heading animated animatedFadeInUp fadeInUp">Reference Material</h4>
+          <!--<app-economics-table [data]="docData"></app-economics-table>-->
+          <div class="animated animatedFadeInUp fadeInUp">
+            <ag-grid-angular
+              class="{{appliedThemeClassOnTable}}"
+              [rowData]="rowDataChange"
+              [columnDefs]="columnDefsChange"
+              [defaultColDef]="defaultColDef"
+              [floatingFilter]="false"
+              [animateRows]="true"
+              [pagination]="false"
+              [paginationPageSize]="selectedRowsPerPage"
+              (gridReady)="onGridReady($event)"
+              (firstDataRendered)="onFirstDataRendered($event)">
+            </ag-grid-angular>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="research pt-lg-4">
+          <h4 class="section-heading animated animatedFadeInUp fadeInUp">RESEARCH TEAM</h4>
+          <div class="animated animatedFadeInUp fadeInUp">
+            <app-research-team [teams]="teams"></app-research-team>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

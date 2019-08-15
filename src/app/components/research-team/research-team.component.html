@@ -1,0 +1,17 @@
+<div class="research-team">
+  <div class="scroll-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions" >
+    <div class="row pt-2 pt-sm-3" *ngFor="let team of teams">
+      <div class="col-4 col-sm-2 col-lg-4">
+        <img alt="alternative text" src="{{team.image}}" class="research-team-image pr-0"/>
+      </div>
+      <div class="col-8 col-sm-10 col-lg-8 details pl-0">
+        <div class="name">
+          <!--<a [routerLink]="'/profile'">{{team.name}}</a>-->
+          <a href="#" (click)="goToProfile($event, team)">{{team.name}}</a>
+        </div>
+        <div class="phone">{{team.phone}}</div>
+        <div class="email">{{team.email}}</div>
+      </div>
+    </div>
+  </div>
+</div>
